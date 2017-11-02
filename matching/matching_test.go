@@ -3,11 +3,12 @@ package matching
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/nbutton23/zxcvbn-go/match"
-	"github.com/stretchr/testify/assert"
 	"log"
 	"strings"
 	"testing"
+
+	"github.com/nbutton23/zxcvbn-go/match"
+	"github.com/stretchr/testify/assert"
 )
 
 //DateSepMatch("1991-09-11jibjab11.9.1991")
@@ -107,7 +108,7 @@ func TestSpatialMatchDvorak(t *testing.T) {
 func TestDictionaryMatch(t *testing.T) {
 	var matches []match.Match
 	for _, dicMatcher := range DICTIONARY_MATCHERS {
-		matchesTemp := dicMatcher("first")
+		matchesTemp := dicMatcher.MatchingFunc("first")
 		matches = append(matches, matchesTemp...)
 	}
 
